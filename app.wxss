@@ -1,0 +1,13 @@
+@import "./styles/iconfont.wxss";
+
+page, view, text, swiper, swiper-item, image, navigator, button{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #1D1D1F;
+}
+
+/* 页面背景颜色变量 */
+page {
+  --page-bg-color: #f5f5f7;
+}

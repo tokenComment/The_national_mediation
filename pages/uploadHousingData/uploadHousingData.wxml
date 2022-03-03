@@ -1,0 +1,125 @@
+<!--pages/uploadHousingData/uploadHousingData.wxml-->
+<view class="progress-box" >
+  <progress percent="{{progressBar}}" backgroundColor="white" activeColor="green" duration="30" 
+border-radius="20" bindtap="progress" show-info >
+</progress>
+
+</view>
+<view class="fangYuanXinXiShangChuan">房源信息上传</view>
+
+<form bindsubmit="all_form_data">
+  <view>
+    <picker class="formPickers" mode="multiSelector" bindcolumnchange="detailed_address_selection_function" value="{{multiIndex}}" range="{{multiArray}}">
+      地址：{{Housing_address}}
+    </picker>
+  </view>
+  <view class="formPickers">
+  <!-- @author：乔巴 
+      @Time： 2021-12-2
+      功能：获取用户的定位坐标
+  -->
+    <view >
+      <view style="color: rgb(228, 55, 42);" wx:if="{{latitude == 0}}" bindtap="gets_the_current_location">点击获取当前详细位置：</view>
+      <view style="color: seagreen;" wx:elif="{{latitude>0}}" >成功获取当前详细位置：</view>
+     维度：{{latitude}} 经度：{{longitude}}
+     </view>
+    <textarea maxlength="179" placeholder="输入位置的备注信息>>|" placeholder-style="color: rgb(125, 139, 130);" style="width: 90%;height: 5rem;margin-top: 1rem;border-radius: 0.3rem;border: 1px solid #c2c2c2;padding: 1rem;" bindblur="bindTextAreaBlur">
+    
+    </textarea>
+  </view>
+  <view>
+    <picker class="formPickers" mode="multiSelector" bindcolumnchange="house_type_selection_function" value="{{multiIndex}}" range="{{multiArray2}}">
+      附近地铁站：{{subway_station}}
+    </picker>
+  </view>
+  <view>
+    <picker class="formPickers" bindchange="fangXingPicker" range="{{household_type_array}}">
+      房型：{{household_type_array[index]}}
+    </picker>
+  </view>
+  <view class="formPickers" style="display: flex;">
+    <text style="width: 4rem;">租金：</text>
+    <input style="border-radius: 0.3rem;border: 1px solid #c2c2c2;padding-left: 1rem;" type="number" name="discount_price" bindinput="discount_price_fun" />
+    <text style="margin-left: 1rem;">元/月</text>
+  </view>
+  <view class="formPickers" style="display: flex;">
+    <text style="width: 4rem;">押金：</text>
+    <input style="border-radius: 0.3rem;border: 1px solid #c2c2c2;padding-left: 1rem;" type="number" name="cashPledge"  
+    bindinput="cashPledge_fun"/>
+    <text style="margin-left: 1rem;">元</text>
+  </view>
+  <view class="formPickers" style="display: flex;">
+    <text style="width: 4rem;">佣金：</text>
+    <input style="border-radius: 0.3rem;border: 1px solid #c2c2c2;padding-left: 1rem;" type="number" name="commission" 
+    bindinput="commission_fun"/>
+    <text style="margin-left: 1rem;">元</text>
+  </view>
+  <view class="formPickers" style="display: flex;">
+    <text style="width: 4rem;">管理费：</text>
+    <input style="border-radius: 0.3rem;border: 1px solid #c2c2c2;padding-left: 1rem;" type="number" name="Administrative_fee" bindinput="Administrative_fee_fun"/>
+    <text style="margin-left: 1rem;">元/月</text>
+  </view>
+  <view class="formPickers" style="display: flex;">
+    <text style="width: 4rem;">电费：</text>
+    <input style="border-radius: 0.3rem;border: 1px solid #c2c2c2;padding-left: 1rem;" type="electric_charge" name="electric_charge" bindinput="electric_charge_fun"/>
+    <text style="margin-left: 1rem;">元/度</text>
+  </view>
+  <view class="formPickers" style="display: flex;">
+    <text style="width: 4rem;">水费：</text>
+    <input style="border-radius: 0.3rem;border: 1px solid #c2c2c2;padding-left: 1rem;" type="number" name="water_rate" bindinput="water_rate_fun"/>
+    <text style="margin-left: 1rem;">元/吨</text>
+  </view>
+  <view class="formPickers">
+    <view>自带设备有哪些</view>
+
+    <checkbox-group name="furniture" style="margin-top: 1rem;" bindchange="checkboxChange">
+      <label style="margin-right: 6%;" ><checkbox value="洗衣机" bindtap="washingMachine_fun"/>洗衣机</label>
+      <label style="margin-right: 6%;" ><checkbox value="空调"/><text decode="true">空 调&nbsp;&nbsp;&nbsp;&nbsp;</text></label>
+      <label style="margin-right: 6%;" ><checkbox value="衣柜"/>衣 柜    </label>
+      <label style="margin-right: 6%;" ><checkbox value="冰箱"/><text decode="true">冰  箱&nbsp;&nbsp;</text></label>
+      <label style="margin-right: 6%;" ><checkbox value="热水器"/>热 水 器</label>
+      <label style="margin-right: 6%;" ><checkbox value="床" /><text decode="true">床&nbsp;</text></label>
+      <label style="margin-right: 6%;" ><checkbox value="电视"/><text decode="true">电 视&nbsp;&nbsp;</text></label>
+      <label style="margin-right: 6%;" ><checkbox value="wifi"/>wifi</label>
+    </checkbox-group>
+  </view>
+  <!-- <view class="formUploadPickers" style="height: 750rpx;background-color: salmon;">
+    <button bindtap="chooseImg" type='primary'>拍照 / 选择图片</button>
+    <view>
+      <view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+        <view style="width: 6rem;height: 6.42rem;">
+          <view style="border: 1px solid #000;height: 6.42rem;">
+            <image style="width: 100%;height: 100%;" src="{{item}}" data-index="{{index}}" mode="aspectFit" bindtap="previewImg">
+              <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon>
+            </image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <view class="formUploadPickers" style="height: 850rpx;background-color: springgreen;">
+    <button  class="btn_select_video" bindtap="chooseVideo" type='primary' wx:if="{{clickFlag}}">拍照 / 选择视频</button>
+    <button  class="btn_selected_video" type='primary '  wx:else>已经成功选择视频</button>
+    <button  class="btn_reselect" size="mini" bind="chooseVideo">重新选择</button>
+    <view>
+     
+      <view class="videoUrlResult" >
+
+        <view class="title">上传的视频：</view>
+        <!--autoplay="true" 视频自动播放-->
+        <video class="videoContent" style="margin-top: 20rpx;" 
+               show-center-play-btn="true" src="{{videoUrl}}" object-fit="fill" 
+               bindfullscreenchange="fullscreenchange">
+        </video>
+    </view>
+    </view>
+  </view>
+
+  <view class="formPickers">
+    <button type="primary" formType="submit">提交</button>
+  </view>
+
+</form>
+
+
+<view style="height: 3rem;"></view>

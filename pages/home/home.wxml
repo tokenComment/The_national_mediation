@@ -1,0 +1,118 @@
+<!-- pages/home/home.wxml -->
+<!-- 搜索栏 -->
+<SearchInput></SearchInput>
+<!-- 导航栏 -->
+<view class="nav">
+  <view class="nav-bar">
+    <navigator class="nav-bar-navigator" url="/pages/renters/renters">
+      <image class="nav-image" lazy-load="true" src="/icons/renters.png"></image>
+    </navigator>
+    <text class="nav-bar-text">租房</text>
+  </view>
+  <view class="nav-bar">
+    <navigator class="nav-bar-navigator" url="/pages/uploadHousingData/uploadHousingData">
+      <image class="nav-image" lazy-load="true" src="/icons/Buying-a-house.png"></image>
+    </navigator>
+    <text class="nav-bar-text">上传房源</text>
+  </view>
+  <view class="nav-bar" bindtap="supermarket">
+    <navigator url="/pages/chat/chat"> 
+      <image class="nav-image" lazy-load="true" src="/icons/supermarket.png"></image>
+    </navigator>
+    <text class="nav-bar-text">超市</text>
+  </view>
+  <view class="nav-bar">
+    <navigator>
+      <image class="nav-image" lazy-load="true" src="/icons/Credit-score.png"></image>
+    </navigator>
+    <text class="nav-bar-text">信用分</text>
+  </view>
+  <view class="nav-bar">
+    <navigator>
+      <image class="nav-image" lazy-load="true" src="/icons/furniture.png"></image>
+    </navigator>
+    <text class="nav-bar-text">家具</text>
+  </view>
+  <view class="nav-bar">
+    <navigator>
+      <image class="nav-image" lazy-load="true" src="/icons/decorate.png"></image>
+    </navigator>
+    <text class="nav-bar-text">装修</text>
+  </view>
+  <view class="nav-bar">
+    <navigator>
+      <image class="nav-image" lazy-load="true" src="/icons/maintenance.png"></image>
+    </navigator>
+    <text class="nav-bar-text">维修</text>
+  </view>
+  <view class="nav-bar">
+    <navigator>
+      <image class="nav-image" lazy-load="true" src="/icons/Todays-explosive.png"></image>
+    </navigator>
+    <text class="nav-bar-text">今日爆款</text>
+  </view>
+  <view class="nav-bar">
+    <navigator>
+      <image class="nav-image" lazy-load="true" src="/icons/Rent-credit.png"></image>
+    </navigator>
+    <text class="nav-bar-text">房租抵扣</text>
+  </view>
+  <view class="nav-bar">
+    <navigator>
+      <image class="nav-image" lazy-load="true" src="/icons/classification.png"></image>
+    </navigator>
+    <text class="nav-bar-text">分类</text>
+  </view>
+</view>
+<!-- 推广(轮播图) -->
+<view class="home-swiper">
+  <swiper class="swiper-class" indicator-dots="true" autoplay="true" circular="true">
+    <swiper-item wx:for="{{swiperList}}" wx:key="id">
+      <navigator>
+        <image class="swiper-image" src="{{item.image_src}}" lazy-load="true"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 推广2 -->
+<view style="background-color: #fff;padding-top: 1rem;margin-top: 1rem;">
+    <text class="tuiGuangBiaoTi-text">特价房</text>
+  <view class="tuiGuang">
+    <navigator class="tuiGuang-navigator" wx:for="{{tuiGuang2List}}" wx:key="id">
+      <image class="tuiGuang-navigator-image" src="{{item.image_src}}" lazy-load="false"></image>
+    </navigator>
+  </view>
+</view>
+
+<!-- 租房列表 -->
+<navigator wx:for="{{renters_list}}" wx:key="id" class="renters-list"  >
+    <view class="renters-list-right" bindtap="detailFunc"  data-videoid="{{item.propertyId}}">
+        <image src="{{item.imgPath1}}" class="renters-list-img" lazy-load="true" />
+    </view>
+    <view class="{{smallScreen ? 'renters-list-left-true' : 'renters-list-left'}}">
+        <span class="renters-list-left-title" bindtap="detailFunc"  data-videoid="{{item.propertyId}}">
+            {{item.subwayStation}}{{item.houseType}}
+        </span>
+        <view bindtap="detailFunc"  data-videoid="{{item.propertyId}}">
+            面积：{{item.house_area}}m
+            <span class="sup">2</span>
+        </view>
+        <view bindtap="detailFunc"  data-videoid="{{item.propertyId}}"> 
+            租金：{{item.discountedPrice}}元/月
+            <span class="renters-list-left-real_price">{{item.real_price}}元/月</span>
+        </view>
+        <view class="renters-list-left-commission" bindtap="detailFunc"  data-videoid="{{item.propertyId}}">佣金：{{item.commission}}元</view>
+        <view class="renters-list-left-icons">
+            <navigator   class="renters-list-left-iconsAndSpan" bindtap="shopFunc" data-userid="{{item.userId}}">
+                <image class="renters-list-left-icon" src="/icons/shop.png" lazy-load="true" />
+                <text>店铺</text>
+            </navigator>
+            <view class="renters-list-left-iconsAndSpan"  >
+                <image wx:if="{{!item.collect}}" catchtap="clickCollect" class="renters-list-left-icon" src="/icons/backoning2.png" lazy-load="true" />
+                <image wx:if="{{item.collect}}" catchtap="clickCollect" class="renters-list-left-icon" src="/icons/beckoning-selected.png" lazy-load="true" />
+                <text catchtap="clickCollect" data-userid="{{item.userId}}" data-videoid="{{item.propertyId}}" >心动</text>
+            </view>
+        </view>
+    </view>
+</navigator>
+<view style="height: 1rem;width: 95vw;"></view>

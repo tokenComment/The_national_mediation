@@ -1,0 +1,15 @@
+/* components/tabs/tabs.wxss */
+.tabs {
+  width: 100vw;
+  height: 2rem;
+  background-color: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.tabs-picker {
+  width: 33.3%;
+  text-align: center;
+}

@@ -1,0 +1,35 @@
+<!--pages/shop/shop.wxml-->
+<view class="shpe-information">
+    房源列表
+    <!-- <button type="primary">联系商家</button> -->
+</view>
+
+<!-- 租房列表 -->
+<navigator wx:for="{{renters_list}}" wx:key="id" class="renters-list"  >
+    <view class="renters-list-right" bindtap="detailFunc"  data-videoid="{{item.propertyId}}">
+        <image src="{{item.imgPath1}}" class="renters-list-img" lazy-load="true" />
+    </view>
+    <view class="{{smallScreen ? 'renters-list-left-true' : 'renters-list-left'}}">
+        <span class="renters-list-left-title" bindtap="detailFunc"  data-videoid="{{item.propertyId}}">
+            {{item.subwayStation}}{{item.houseType}}
+        </span>
+        <view bindtap="detailFunc"  data-videoid="{{item.propertyId}}">
+            面积：{{item.house_area}}m
+            <span class="sup">2</span>
+        </view>
+        <view bindtap="detailFunc"  data-videoid="{{item.propertyId}}"> 
+            租金：{{item.discountedPrice}}元/月
+            <span class="renters-list-left-real_price">{{item.real_price}}元/月</span>
+        </view>
+        <view class="renters-list-left-commission" bindtap="detailFunc"  data-videoid="{{item.propertyId}}">佣金：{{item.commission}}元</view>
+        <view class="renters-list-left-icons">
+           
+            <view class="renters-list-left-iconsAndSpan">
+                <image wx:if="{{!item.collect}}" catchtap="clickCollect" class="renters-list-left-icon" src="/icons/backoning2.png" lazy-load="true" />
+                <image wx:if="{{item.collect}}" catchtap="clickCollect" class="renters-list-left-icon" src="/icons/beckoning-selected.png" lazy-load="true" />
+                <text catchtap="clickCollect">心动</text>
+            </view>
+        </view>
+    </view>
+</navigator>
+<view style="height: 1rem;width: 95vw;"></view>

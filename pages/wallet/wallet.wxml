@@ -1,0 +1,8 @@
+<!--pages/wallet/wallet.wxml-->
+<view class="pagesTitle">欢迎来到全民中介系统钱包</view>
+<view class="tiXing1">\n为了您的资金安全请实名认证</view>
+<view class="yuE">
+    <text >余额(元)</text>
+    <text >\n0.00</text>
+</view>
+<view class="tiXing2">全民中介系统保护您的账户安全</view>

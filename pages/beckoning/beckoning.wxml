@@ -1,0 +1,49 @@
+<!-- pages/beckoning/beckoning.wxml -->
+<view style="text-align: center;" wx:if="{{!renters_list_data}}">
+  <text>\n</text>
+  <text>\n</text>
+  <text>\n</text>
+  <text>\n</text>
+  <text>购物车空的</text>
+  <text>\n</text>
+  <text>\n</text>
+  <text>\n</text>
+  <text>\n</text>
+  <image src="http://hbimg.b0.upaiyun.com/e1b1467beea0a9c7d6a56b32bac6d7e5dcd914f7c3e6-YTwUd6_fw658"
+    mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+</view>
+<view wx:if="{{renters_list_data}}">
+  <view class="xinDong">心动</view>
+  <!-- 租房列表 -->
+  <navigator wx:for="{{renters_list}}" wx:key="id" class="renters-list"  >
+    <view class="renters-list-right" bindtap="detailFunc"  data-videoid="{{item.propertyId}}">
+        <image src="{{item.imgPath1}}" class="renters-list-img" lazy-load="true" />
+    </view>
+    <view class="{{smallScreen ? 'renters-list-left-true' : 'renters-list-left'}}">
+        <span class="renters-list-left-title" bindtap="detailFunc"  data-videoid="{{item.propertyId}}">
+            {{item.subwayStation}}{{item.houseType}}
+        </span>
+        <view bindtap="detailFunc"  data-videoid="{{item.propertyId}}">
+            面积：{{item.house_area}}m
+            <span class="sup">2</span>
+        </view>
+        <view bindtap="detailFunc"  data-videoid="{{item.propertyId}}"> 
+            租金：{{item.discountedPrice}}元/月
+            <span class="renters-list-left-real_price">{{item.real_price}}元/月</span>
+        </view>
+        <view class="renters-list-left-commission" bindtap="detailFunc"  data-videoid="{{item.propertyId}}">佣金：{{item.commission}}元</view>
+        <view class="renters-list-left-icons">
+            <navigator   class="renters-list-left-iconsAndSpan" bindtap="shopFunc" data-userid="{{item.userId}}">
+                <image class="renters-list-left-icon" src="/icons/shop.png" lazy-load="true" />
+                <text>店铺</text>
+            </navigator>
+            <view class="renters-list-left-iconsAndSpan"  >
+                <image wx:if="{{!item.collect}}" catchtap="clickCollect" class="renters-list-left-icon" src="/icons/backoning2.png" lazy-load="true" />
+                <image wx:if="{{item.collect}}" catchtap="clickCollect" class="renters-list-left-icon" src="/icons/beckoning-selected.png" lazy-load="true" />
+                <text catchtap="clickCollect" data-userid="{{item.userId}}" data-videoid="{{item.propertyId}}" >删除</text>
+            </view>
+        </view>
+    </view>
+  </navigator>
+  <view style="height: 1rem;width: 95vw;"></view>
+</view>

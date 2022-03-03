@@ -1,0 +1,162 @@
+/* pages/home/home.wxss */
+page {
+  background-color: var(--page-bg-color);
+}
+
+.nav {
+  height: 10rem;
+  width: 100vw;
+  background-color: #fff;
+  overflow: hidden;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(2, 50%);
+}
+
+.nav-image {
+  width: 2rem;
+  height: 2rem;
+}
+
+.nav-bar-text {
+  font-size: 0.8rem;
+}
+
+.home-swiper {
+  margin: 0 auto;
+  margin-top: 1rem;
+  height: 5rem;
+  width: 95vw;
+  border-radius: 2.4rem;
+  overflow: hidden;
+  transform: translateY(0);
+  /* box-shadow:0 0 10rpx #000; */
+}
+
+.swiper-class {
+  height: 5rem;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 5rem;
+}
+
+.tuiGuangBiaoTi-text{
+  font-size: 1.3rem;
+  padding-left: 1rem;
+}
+
+.tuiGuang {
+  width: 100vw;
+  height: 15rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1rem 1rem;
+  overflow: hidden;
+}
+
+.tuiGuang-navigator {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.tuiGuang-navigator:first-child {
+  grid-row: 1 / span 2;
+}
+
+.tuiGuang-navigator-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 列表 */
+.sup {
+  font-size: 0.5rem;
+  vertical-align: text-bottom;
+}
+
+.renters-list {
+  margin: 0 auto;
+  margin-top: 0.7rem;
+  background-color: #fff;
+  height: 250rpx;
+  width: 95vw;
+  border-radius: 0.3rem;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+}
+
+.renters-list-img {
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 1rem;
+  margin-left: 0.5rem;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.renters-list-left {
+  margin-left: 1rem;
+  height: 220rpx;
+  width: 60%;
+  line-height: 40rpx;
+  font-size: 0.9rem;
+}
+
+.renters-list-left-true {
+  margin-left: 1rem;
+  height: 220rpx;
+  width: 60%;
+  line-height: 40rpx;
+  font-size: 0.8rem;
+}
+
+.renters-list-left-title {
+  font-size: 1rem;
+}
+
+.renters-list-left-real_price {
+  text-decoration: line-through;
+  color: rgb(185, 185, 185);
+}
+
+.renters-list-left-commission {
+  color: rgb(255, 0, 0);
+}
+
+.renters-list-left-icons {
+  width: 100%;
+  display: flex;
+  padding-top: 0.2rem;
+  justify-content: space-around;
+  border-top: 1px rgb(185, 185, 185) solid;
+}
+
+.renters-list-left-iconsAndSpan {
+  display: flex;
+  align-items: center;
+}
+
+.renters-list-left-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.fenXiangAnNiu {
+  background-color: #fff;
+  padding: 0;
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  margin: 0 !important;
+}
+
+.fenXiangAnNiu::after {
+  border: none;
+}
+
+
+

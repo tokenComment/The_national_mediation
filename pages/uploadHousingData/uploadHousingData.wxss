@@ -1,0 +1,79 @@
+/* pages/uploadHousingData/uploadHousingData.wxss */
+page {
+  background-color: var(--page-bg-color);
+}
+
+.fangYuanXinXiShangChuan {
+  font-size: 1.3rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.formPickers {
+  background-color: #fff;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.pic {
+  float: left;
+  position: relative;
+  margin: 0.3rem;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.videoContent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  position: relative;
+
+}
+.videoUrlResult { 
+  font-size: 28rpx;
+  font-weight: bold;
+  color: red;
+  margin-left: 20rpx;
+  background-color: rgba(76, 138, 89, 0.514);
+}
+.title{
+  
+}
+.formUploadPickers {
+  background-color: rgb(185, 175, 175);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.progress-box{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+.btn_reselect{
+  position: relative;
+  height: 39px;
+  text-align: center;
+  bottom: 39px;
+  right: 11px;
+  color: rgba(194, 19, 19, 0.692);
+  background-color: rgb(14, 150, 1);
+
+}
+.btn_select_video{
+  position: relative;
+  left: 50px;
+  background-color: rgba(84, 224, 114, 0.678);
+}
+.btn_selected_video{
+  position: relative;
+  left: 50px;
+  color: rgba(240, 9, 9, 0.233);
+  background-color: rgb(165, 243, 171);
+  background-color: rgb(125, 139, 130);
+}

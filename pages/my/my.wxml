@@ -1,0 +1,21 @@
+<!-- pages/my/my.wxml -->
+<view class="container">
+    <view class="userinfo">
+        <block wx:if="{{!hasUserInfo}}">
+              <button wx:if="{{token ==''}}"  type="warn"   bindtap="getUserProfile"  >登录</button>
+              <button wx:if="{{isAuth==0 && token!==''}}" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-id="pages/tixian">授权</button>
+        </block>
+        <block wx:else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <span class="userinfo-nickname">{{userInfo.nickName}}</span>
+        </block>
+    </view>
+    <view class="my-list">
+
+        <navigator class="my-list-item" wx:for="{{my_list_item}}" wx:key="name">
+            <span>{{item.name}}uy</span>
+            <span>></span>
+        </navigator>
+    </view>
+</view>
+<view style="height: 1rem;width: 95vw;"></view>

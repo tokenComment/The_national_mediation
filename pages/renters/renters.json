@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "SearchInput": "../../components/SearchInput/SearchInput",
+    "Tabs": "../../components/tabs/tabs"
+  },
+  "navigationBarTitleText": "租房"
+}

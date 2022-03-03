@@ -1,0 +1,311 @@
+/* pages/detailPage/detailPage.wxss */
+page {
+  background-color: var(--page-bg-color);
+}
+
+/* 页面头部 */
+.detailPage-header {
+  background-color: #fff;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.search_input_navigator {
+  width: 13rem;
+  height: 1.5rem;
+  color: #666;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--page-bg-color);
+  border-radius: 0.5rem;
+}
+
+.detailPage-header-backoning {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.detailPage-header-fenXiang {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  padding: 0 !important;
+  background-color: #fff;
+  margin: 0 !important;
+}
+
+.detailPage-header-fenXiang-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 !important;
+}
+
+.detailPage-swiper {
+  height: 15rem;
+  width: 100vw;
+}
+
+/* 轮播图 */
+
+.detail-banner {
+  width: 100%;
+  height: 700rpx;
+}
+
+.detail-banner-img {
+  width: 100%;
+  height: 100%;
+}
+/* video */
+
+.box-w {
+  width: 100%;
+  height: 700rpx;
+}
+
+.videocover {
+  width: 100%;
+  overflow: hidden;
+}
+
+.videocoverbg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(112, 53, 53, 0.3);
+}
+
+.playbtn {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+}
+
+.videocover .cover {
+  width: 100%;
+}
+
+.ico-share {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.titlebar {
+  height: 8.5rem;
+  width: 95vw;
+  background: #fff;
+  border-radius: 1rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: #aaa;
+}
+
+.detailPage-titlebar-text {
+  font-size: 1rem;
+}
+
+.detailed-cost {
+  height: 10rem;
+  width: 95vw;
+  background: #fff;
+  border-radius: 1rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+
+.detailed-cost-contents {
+  margin-top: 1rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.householdAppliances {
+  height: 17rem;
+  width: 95vw;
+  background: rgb(175, 173, 173);
+  border-radius: 1rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+
+.householdAppliances-contents {
+  margin-top: 1rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 16rem;
+}
+
+.householdAppliances-icon {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+}
+
+.container {
+  width: 95vw;
+  height: 6rem;
+  background: #fff;
+  border-radius: 1rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container-item {
+  font-size: 1rem !important;
+  font-weight: normal !important;
+  background-color: #fff;
+  border-radius: 1rem;
+  height: 100%;
+  width: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-item:first-child {
+  border-right: 2px solid;
+  border-right-color: var(--page-bg-color);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.backgroundView {
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.thisHiddin {
+  position: relative;
+  overflow: hidden;
+}
+
+.ensure {
+  width: 100vw;
+  background: #fff;
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  position: absolute;
+  bottom: 0;
+}
+
+.ul {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.li {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid #ccc;
+  border-spacing: 0;
+  text-align: center;
+  line-height: 1.9rem;
+}
+
+.mapSite {
+  height: 17rem;
+  width: 95vw;
+  background: #fff;
+  border-radius: 1rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+
+.mapSite-site {
+  margin-top: 1rem;
+  width: 100%;
+  height: 12rem;
+}
+
+.bottomnav {
+  position: fixed;
+  bottom: 0;
+  height: 6rem;
+  width: 100vw;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 0.7rem;
+  padding-bottom: 1rem;
+}
+
+.bottomnav-collect-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.bottomnav-btn {
+  width: 25vw !important;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: #ff2d2d;
+  color: #fff;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  border-radius: 1.25rem;
+}
+/* 家具图标表格 */
+.furniture_table{
+  border:1px solid rgb(2, 2, 2);
+  width: 273px;
+}
+.furniture_tr{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+  background: snow;
+}
+.th{
+  width: 40%;
+  justify-content: center;
+  background: rgb(251, 253, 250);
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  border:1px solid rgb(2, 2, 2);
+}
+/* 家具的选择文字css */
+.text_select{
+  color: #d81e06;
+}

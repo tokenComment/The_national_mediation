@@ -1,0 +1,64 @@
+
+/* pages/my/my.wxss */
+page {
+  background-color: var(--page-bg-color);
+}
+.userinfo {
+  width: 100vw;
+  background-color: #fff;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.userinfo-btn {
+  width: 5rem !important;
+  height: 5rem !important;
+  margin-left: 5vw !important;
+  margin-right: 5vw !important;
+  border-radius: 4rem;
+  background-color: #808080;
+  line-height: 6rem;
+  color: #fff;
+}
+
+.userinfo-span {
+  width: 6rem !important;
+  margin: 0 !important;
+  padding: 0;
+  border: 0;
+  background-color: #fff;
+  border-radius:0;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.userinfo-avatar {
+  width: 5rem !important;
+  height: 5rem !important;
+  margin-left: 5vw !important;
+  margin-right: 2rem !important;
+  border-radius: 4rem;
+  background-color: #808080;
+  line-height: 6rem;
+  color: #fff;
+}
+
+.my-list {
+  margin: 0 auto;
+  margin-top: 0.7rem;
+  background-color: #fff;
+  width: 95vw;
+  border-radius: 1rem;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 3vw;
+}
+
+.my-list-item {
+  height: 2.5rem;
+  border-bottom: 1px solid var(--page-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

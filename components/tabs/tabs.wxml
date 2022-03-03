@@ -1,0 +1,19 @@
+<!--components/tabs/tabs.wxml-->
+<view class="tabs">
+    <picker class="tabs-picker" mode="multiSelector" bindcolumnchange="bindMultiPickerColumnChange"
+        value="{{multiIndex}}" range="{{multiArray}}">
+        <view>
+            {{multiName}}
+        </view>
+    </picker>
+    <picker class="tabs-picker" value="{{index}}" range="{{moneyArray}}">
+        <view>
+            租金
+        </view>
+    </picker>
+    <picker class="tabs-picker" value="{{index}}" range="{{household_type_array}}">
+        <view class="picker">
+            房型
+        </view>
+    </picker>
+</view>

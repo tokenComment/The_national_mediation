@@ -1,0 +1,18 @@
+/* 
+此文件为开发者工具生成，生成时间: 2021/12/26 下午3:21:47
+使用方法：
+在 app.wxss 文件末尾引入样式
+```
+@import "./app-wxa-auto-dark.wxss";
+```
+ */
+
+@media (prefers-color-scheme: dark) {
+    page, view, text, swiper, swiper-item, image, navigator, button {
+        color: rgb(238, 238, 241);
+    }
+
+    page {
+        --page-bg-color: rgb(24, 24, 26);
+    }
+}

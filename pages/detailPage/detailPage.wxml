@@ -1,0 +1,219 @@
+<!-- pages/detailPage/detailPage.wxml -->
+<!-- 页面头部 -->
+<view class="detailPage-header">
+    <!-- 搜索框 -->
+    <navigator url="/pages/search/search" class="search_input_navigator">
+        搜索
+        <icon class="" type="search" size="20" color="#666" />
+    </navigator>
+    <!-- 购物车 -->
+    <navigator>
+        <image class="detailPage-header-backoning" src="/icons/backoning2.png" lazy-load="true" />
+    </navigator>
+    <!-- 分享 -->
+    <button class="detailPage-header-fenXiang" open-type="share" data-videoid = "{{videoId}}">
+        <image class="detailPage-header-fenXiang-icon" src="/icons/sharing.png" lazy-load="true" />
+    </button>
+</view>
+<!-- 轮播图 -->
+<swiper class="detail-banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="{{beforeColor}}" indicator-active-color="{{afterColor}}" style="background: white;">
+    <swiper-item wx:for="{{banner_list}}" wx:key="index">
+        <view class='videocover' data-id="{{index}}" bindtap='playbtn' wx:if="{{item.type==1}}">
+            <view class='videocoverbg'></view>
+            <!-- <image src='../../../img/icon/icon-pause.png' class='playbtn' bindtap="videoPause"></image> -->
+        </view>
+        <view wx:if="{{item.type==1}}">
+            <video class='box-w block' id="video" src="{{videoPath}}" muted="{{false}}" show-center-play-btn="{{false}}" autoplay='{{true}}' objectFit="cover" bindended="jieshu" ></video>
+        </view>
+        <image class="detail-banner-img" mode="aspectFit" src="{{item.url}}" bindtap="previewImage" data-src="{{item.url}}" wx:if="{{item.type==0}}"></image>
+    </swiper-item>
+</swiper>
+<!-- 标题价格 -->
+<view class="titlebar">
+    <!-- 折扣价格 -->
+    <text decode="{{true}}" class="detailPage-titlebar-text" style="font-size:1.3rem;line-height:2rem;color:#FF0000;">租金：{{discount_price}}元/月&nbsp;&nbsp;&nbsp;</text>
+    <!-- 真实价格 -->
+    <text class="detailPage-titlebar-text" style="text-decoration: line-through;color: rgb(185, 185, 185);">{{discount_price + 400}}元/月</text>
+    <!-- 地址，房型 -->
+    <text>\n</text>
+    <text class="detailPage-titlebar-text" >{{subwayStation}}·{{houseType}}</text>
+    <!-- 佣金 -->
+    <text>\n</text><text>\n</text>
+    <text class="detailPage-titlebar-text" style="color:#FF0000;">佣金：{{commission}}元</text>
+</view>
+
+<!-- 费用详细 -->
+<view class="detailed-cost">
+      <text style="font-size:1.3rem;">费用详细</text>
+      <view class="detailed-cost-contents">
+         <text>租金</text>
+         <text>押金</text>
+         <text>管理费</text>
+         <text>电费</text>
+         <text>水费</text>
+         <text style="font-size:0.7rem;opacity:0.6;">(元/月)</text>
+         <text style="font-size:0.7rem;opacity:0.6;">(元)</text>
+         <text style="font-size:0.7rem;opacity:0.6;">(元)</text>
+         <text style="font-size:0.7rem;opacity:0.6;">(元/度)</text>
+         <text style="font-size:0.7rem;opacity:0.6;">(元/吨)</text>
+         <text >{{discount_price}}</text>
+         <text >{{cash_pledge}}</text>
+         <text >{{Administrative_fee}}</text>
+         <text >{{electric_charge}}</text>
+         <text >{{water_rate}}</text>
+      </view>
+</view>
+
+<!-- 房源介绍 -->
+<view class="householdAppliances">
+      <text style="font-size:1.3rem;">房源介绍</text>
+      <view class="householdAppliances-contents">
+
+        <view class="furniture_table">
+            <view class="furniture_tr bg-w"> 
+                <view class="th">
+                    <image class="householdAppliances-icon" src="/images/xiYiJi(y).png" lazy-load="true" wx:if="{{washing_machine == true}}" />
+                    <image class="householdAppliances-icon" src="/images/xiYiJi(w).png" lazy-load="true" wx:if="{{washing_machine == false}}" />
+                    </view>
+                <view class="th">
+                    <image class="householdAppliances-icon" src="/images/kongTiao(y).png" lazy-load="true"  wx:if="{{air_conditioner == true}}" />
+                    <image class="householdAppliances-icon" src="/images/kongTiao(w).png" lazy-load="true"  wx:if="{{air_conditioner == false}}"/>
+                </view>
+                <view class="th">
+                    <image class="householdAppliances-icon" src="/images/yiGui(y).png" lazy-load="true"  wx:if="{{closet == true}}" />
+                    <image class="householdAppliances-icon" src="/images/yiGui(w).png" lazy-load="true"  wx:if="{{closet == false}}"/>
+                </view>
+                <view class="th">
+                    <image class="householdAppliances-icon" src="/images/bingXiang(y).png" lazy-load="true"  wx:if="{{refrigerator == true}}"/>
+                    <image class="householdAppliances-icon" src="/images/bingXiang(w).png" lazy-load="true"  wx:if="{{refrigerator == false}}"/>
+                </view>
+            </view>
+            <view class="furniture_tr bg-w"> 
+                <view class="th">
+                    <text class="text_select" style="font-size: 0.9rem;" wx:if="{{washing_machine == true}}">洗衣机</text>
+                    <text  style="font-size: 0.9rem;" wx:if="{{washing_machine == false}}">洗衣机</text>
+                </view>
+                <view class="th">
+                    <text class="text_select" style="font-size: 0.9rem;"  wx:if="{{air_conditioner == true}}">空调</text>
+                    <text style="font-size: 0.9rem;" wx:if="{{air_conditioner == false}}">空调</text>
+                </view>
+                <view class="th">
+                    <text class="text_select" style="font-size: 0.9rem;"  wx:if="{{closet == true}}">衣柜</text>
+                    <text style="font-size: 0.9rem;" wx:if="{{closet == false}}">衣柜</text>    
+                </view>
+                <view class="th">
+                    <text class="text_select" style="font-size: 0.9rem;"  wx:if="{{refrigerator == true}}">冰箱</text>
+                    <text style="font-size: 0.9rem;" wx:if="{{refrigerator == false}}">冰箱</text>
+                </view>
+            </view>
+            <view class="furniture_tr bg-w"> 
+                <view class="th">
+                    <image class="householdAppliances-icon" src="/images/reShuiQi(y).png" lazy-load="true"  wx:if="{{calorifier == true}}"/> 
+                    <image class="householdAppliances-icon" src="/images/reShuiQi(w).png" lazy-load="true" wx:if="{{calorifier == false}}"/>  
+                </view>
+                <view class="th">
+                    <image class="householdAppliances-icon" src="/images/chuang(y).png" lazy-load="true"  wx:if="{{bed == true}}"/>
+                    <image class="householdAppliances-icon" src="/images/chuang(w).png" lazy-load="true" wx:if="{{bed == false}}" />
+                </view>
+                <view class="th">
+                    <image class="householdAppliances-icon" src="/images/TV(y).png" lazy-load="true"  wx:if="{{tv == true}}"/>
+                    <image class="householdAppliances-icon" src="/images/TV(w).png" lazy-load="true" wx:if="{{tv == false}}"/>
+                </view>
+                <view class="th"> 
+                    <image class="householdAppliances-icon" src="/images/wifi(y).png" lazy-load="true"  wx:if="{{wifi == true}}"/>
+                    <image class="householdAppliances-icon" src="/images/wifi(w).png" lazy-load="true" wx:if="{{wifi == false}}"/>
+                </view>
+            </view>
+            <view class="furniture_tr bg-w"> 
+                <view class="th">
+                    <text class="text_select" style="font-size: 0.9rem;"  wx:if="{{calorifier == true}}">热水器</text>
+                    <text style="font-size: 0.9rem;" wx:if="{{calorifier == false}}">热水器</text>
+                </view>
+                <view class="th">
+                    <text class="text_select" style="font-size: 0.9rem;" wx:if="{{bed == true}}">床</text>
+                    <text style="font-size: 0.9rem;" wx:if="{{bed == false}}">床</text>
+                </view>
+                <view class="th">
+                    <text class="text_select" style="font-size: 0.9rem;"  wx:if="{{tv == true}}">电视</text>
+                    <text style="font-size: 0.9rem;" wx:if="{{tv == false}}">电视</text>
+                </view>
+                <view class="th">
+                    <text class="text_select" style="font-size: 0.9rem;" wx:if="{{wifi == true}}">wifi</text>
+                    <text style="font-size: 0.9rem;" wx:if="{{wifi == false}}">wifi</text>
+                </view>
+            </view>
+        </view>
+        
+      </view>
+</view>
+
+<!-- 详细内容 -->
+<view class="container">
+    <button class="container-item" bindtap = "clickEnsure">
+        <span>保障</span>
+        <span>></span>
+    </button>
+    <button class="container-item" bindtap = "clickParametera">
+        <span>参数</span>
+        <span>></span>
+    </button>
+</view>
+
+<!-- 弹出保障 -->
+<view class="{{ensureOverflow ? 'backgroundView' : 'thisHiddin'}}" bindtap = "clickEnsure">
+    <!-- 保障 -->
+    <view class="ensure">
+        <view class="ul">
+            <view class="li">基础服务</view>
+        </view>
+        <view class="ul">
+            <view class="li" style="width:100%;">
+            基础服务1： 免费带看
+            
+            </view>
+        </view>
+        <view class="ul">
+            <view class="li">不知道</view>
+        </view>
+    </view>
+</view>
+<!-- 弹出参数 -->
+<view class="{{parameteraOverflow ? 'backgroundView' : 'thisHiddin'}}" bindtap = "clickParametera"> 
+    <!-- 参数 -->
+    <view class="ensure">
+        <view class="ul">
+            <view class="li">参数</view>
+        </view>
+        <view class="ul">
+            <view class="li" style="width:50%;">不知道</view>
+            <view class="li" style="width:50%;">不知道</view>
+        </view>
+        <view class="ul">
+            <view class="li">不知道</view>
+        </view>
+    </view>
+</view>
+
+<!-- 位置 -->
+<view class="mapSite">
+    <text style="font-size:1.3rem;">位置</text>
+<map id="myMap" class="mapSite-site" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}"></map>
+</view>
+
+<view style="height: 7rem;width: 95vw;"></view>
+
+<view class="bottomnav" bindtap="shopFunc">
+    <navigator url="" open-type="navigate">
+        <image class="bottomnav-collect-icon" src="/icons/shop.png" lazy-load="true" />
+        <text>\n店铺</text>
+    </navigator>
+    <view bindtap="clickCollect" catchtap="clickCollect" data-userid="{{userId}}" data-videoid="{{propertyId}}">
+        <image wx:if="{{!collect}}" class="bottomnav-collect-icon" style="margin-left: 25%;" src="/icons/backoning2.png" lazy-load="true" />
+        <image wx:if="{{collect}}"  class="bottomnav-collect-icon" style="margin-left: 25%;" src="/icons/beckoning-selected.png" lazy-load="true" /> 
+        <text>\n加入心动</text>
+    </view> 
+    <view style="display: flex;">
+        <button class="bottomnav-btn" style="background-color: orange;" bindtap="kehu_btn" data-userid="userId">客服</button>
+        <button class="bottomnav-btn" style="margin-left:1rem;">订房</button>
+    </view>
+</view>
